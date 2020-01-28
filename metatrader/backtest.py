@@ -138,7 +138,7 @@ class BackTest(object):
         conf_file = os.path.join(mt4.appdata_path, 'tester', '%s.conf' % self.ea_name)
         return conf_file
 
-    def run(self, alias=DEFAULT_MT4_NAME):
+    def run(self, alias=DEFAULT_MT4_NAME, report=False):
         """
         Notes:
           run backtest
@@ -152,8 +152,11 @@ class BackTest(object):
         mt4 = get_mt4(alias=alias)
         mt4.run(self.ea_name, conf=bt_conf)
 
-        ret = BacktestReport(self)
-        return ret
+        if report:
+            ret = BacktestReport(self)
+            return ret
+        else:
+            return None
 
     def optimize(self, alias=DEFAULT_MT4_NAME):
         """
