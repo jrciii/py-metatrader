@@ -138,7 +138,7 @@ class BackTest(object):
         conf_file = os.path.join(mt4.appdata_path, 'tester', '%s.conf' % self.ea_name)
         return conf_file
 
-    def run(self, alias=DEFAULT_MT4_NAME, report=False):
+    def run(self, alias=DEFAULT_MT4_NAME, report=True):
         """
         Notes:
           run backtest
